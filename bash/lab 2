@@ -1,0 +1,11 @@
+#!/bin/bash
+# This script downloads covid data and displays it
+
+DATA=$(curl https://api.covidtracking.com/v1/us/current.json)
+POSITIVE=$(echo $DATA | jq '.[0].positive')
+TODAY=$(date)
+
+echo "On $TODAY, there were $POSITIVE positive COVID cases"
+
+[root@wheelein-centos cechuser]# echo "On $TODAY, there were $POSITIVE positive COVID cases"
+On Fri Sep 29 10:16:51 EDT 2023, there were 28756489 positive COVID cases, 515151 deaths, 776361 people hospitalized, and 74582825 negative test. 
