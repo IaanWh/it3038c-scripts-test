@@ -1,0 +1,28 @@
+PS C:\Users\Administrator> function getIP{
+    (get-netipaddress).ipv4address | Select-String "192*"
+}
+
+PS C:\Users\Administrator> $IP = getIP
+PS C:\Users\Administrator> $User = $env:Username  
+PS C:\Users\Administrator> $ver = ?
+
+cmdlet Where-Object at command pipeline position position 1
+Supply values for the following parameters:
+Property: 5
+
+PS C:\Users\Administrator> $HOST = ?
+
+cmdlet Where-Object at command pipeline position position 1
+Supply values for the following parameters:
+Property: wheelein-win
+
+PS C:\Users\Administrator> $DATE = ?
+
+cmdlet Where-Object at command pipeline position position 1
+Supply values for the following parameters:
+Property: 9/28/2023
+
+PS C:\Users\Administrator> $BODY = "This machine's IP is $IP. User is $User. Hostname is $HOST. PowerShell $ver. Today's Date is $DATE."
+PS C:\Users\Administrator> Send-MailMessage -To "wheelein@mail.uc.edu" -From "iaanwheeler@gmail.com" -Subject "IT3038C Windows SysInfo" -Body $BODY -SmtpServer smtp.gmail.com -port 587 -UseSSL -Credential (Get-Credential) 
+
+PS C:\Users\Administrator>
