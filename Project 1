@@ -1,16 +1,7 @@
-const os = require('os');
-const fs = require('fs');
+const currentTime = new Date();
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const currentDay = daysOfWeek[currentTime.getDay()];
 
-// To show the drive or directory you want to check
-const drive = '/'; 
-// To get information about the drive
-const driveInfo = fs.statSync(drive);
-const totalSpaceGB = driveInfo.blocks * driveInfo.blksize / 1024 / 1024 / 1024;
-const freeSpaceGB = driveInfo.blocksAvailable * driveInfo.blksize / 1024 / 1024 / 1024;
-
-
-console.log(`Drive: ${drive}`);
-console.log(`Total Space: ${totalSpaceGB.toFixed(2)} GB`);
-console.log(`Free Space: ${freeSpaceGB.toFixed(2)} GB`);
-console.log(`Used Space: ${(totalSpaceGB - freeSpaceGB).toFixed(2)} GB`);
+console.log(`Current time is: ${currentTime.toLocaleTimeString()}`);
+console.log(`Today is: ${currentDay}`);
 
