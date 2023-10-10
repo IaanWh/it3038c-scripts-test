@@ -1,0 +1,16 @@
+const os = require('os');
+const fs = require('fs');
+
+// To show the drive or directory you want to check
+const drive = '/'; 
+// To get information about the drive
+const driveInfo = fs.statSync(drive);
+const totalSpaceGB = driveInfo.blocks * driveInfo.blksize / 1024 / 1024 / 1024;
+const freeSpaceGB = driveInfo.blocksAvailable * driveInfo.blksize / 1024 / 1024 / 1024;
+
+
+console.log(`Drive: ${drive}`);
+console.log(`Total Space: ${totalSpaceGB.toFixed(2)} GB`);
+console.log(`Free Space: ${freeSpaceGB.toFixed(2)} GB`);
+console.log(`Used Space: ${(totalSpaceGB - freeSpaceGB).toFixed(2)} GB`);
+
