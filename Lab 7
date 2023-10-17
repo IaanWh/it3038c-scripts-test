@@ -1,0 +1,27 @@
+from PIL import Image, ImageFilter
+myImage = Image.open('/full/path/to/pizza.jpg')
+myImage.load
+
+def resize_image(input_path, output_path, size):
+        img = Image.open(input_path)
+        img = img.resize(size)
+        img.save(output_path)
+        print("Image resized and saved to", output_path)
+    except Exception as e:
+        print("An error occurred:", str(e))
+
+def apply_filter(input_path, output_path, filter_type):
+        img = Image.open(input_path)
+        filtered_img = img.filter(filter_type)
+        filtered_img.save(output_path)
+        print("Filter applied and image saved to", output_path)
+    except Exception as e:
+        print("An error occurred:", str(e))
+
+def create_thumbnail(input_path, output_path, size):
+        img = Image.open(input_path)
+        img.thumbnail(size)
+        img.save(output_path)
+        print("Thumbnail created and saved to", output_path)
+    except Exception as e:
+        print("An error occurred:", str(e))
