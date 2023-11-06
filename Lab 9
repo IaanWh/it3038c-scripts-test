@@ -1,0 +1,21 @@
+import requests
+
+api_url = "http://localhost:3000/widgets"
+
+try:
+    # Make a GET request to the Node API
+    response = requests.get(api_url)
+
+    # Check to see if the request was successful
+    if response.status_code == 200:
+        # Parse the JSON response
+        widget_data = response.json()
+
+        for widget in widget_data:
+            widget_name = widget["name"]
+            widget_color = widget["color"]
+            print(f"{widget_name} is {widget_color}.")
+    else:
+        print(f"Failed to retrieve data from the API. Status code: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")
