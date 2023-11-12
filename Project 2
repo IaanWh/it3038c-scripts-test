@@ -13,3 +13,9 @@ if __name__ == "__main__":
     print(f"Used disk space: {used:.2f} GB")
     print(f"Free disk space: {free:.2f} GB")
 
+
+
+
+
+
+README.md file LINK: https://github.com/IaanWh/it3038c-scripts-test/blob/main/README.md 
