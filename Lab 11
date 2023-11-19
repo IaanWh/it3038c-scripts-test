@@ -14,3 +14,10 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+-------LINKS TO THE HTML FILES:
+
+https://github.com/IaanWh/it3038c-scripts-test/blob/main/Lab%2011%20layout.html
+
+https://github.com/IaanWh/it3038c-scripts-test/blob/main/Lab%2011%20welcome.html
