@@ -1,28 +1,16 @@
-from flask import Flask,render_template,request
-import time
-today = time.strftime("%Y-%m-%d") #Coverts the time of today to the year, month, and day   
-current_time = time.strftime("%d %B %Y %H:%M:%S %Z %I:%M %p") 
-print("Iaan Today's Date And Time is Currently:") 
-print(current_time) #Displays current time when ran
+from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
-@app.route("/")
-@app.route("/home")
-def home():
-    return render_template("index.html")
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        # Get the name entered in the form
+        name = request.form['name']
+        # Render a template with the greeting
+        return render_template('greeting.html', name=name)
+    # Render the initial form
+    return render_template('index.html')
 
-@app.route("/result",methods = ['POST',"GET"])
-def result():
-    output = request.form.to_dict()
-    name = output["name"]
-    return render_template("index.html",name = name)  
-if __name__== '__main__':
-     app.run(debug= True,port=5001) 
-
-     
-import time #imports Time
-
-today = time.strftime("%Y-%m-%d") #Coverts the time of today to the actual year, month, and day   
-current_time = time.strftime("%d %B %Y %H:%M:%S %Z %I:%M %p") #Converts current time to their representation
-print("Iaan Today's Date And Time is Currently:") # Displays my personalized scripy
-print(current_time) #Displays current time when ran
+if __name__ == '__main__':
+    app.run(debug=True)
