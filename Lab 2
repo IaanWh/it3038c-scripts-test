@@ -1,0 +1,25 @@
+import datetime
+
+# Data for Sat Aug 28 14:23:53 EDT 2021
+date_time_str = 'Sat Aug 28 14:23:53 2021'
+date_time_obj = datetime.datetime.strptime(date_time_str, '%a %b %d %H:%M:%S %Y')
+
+positive_cases = 28756489
+negative_tests = 74582825
+deaths = 500500
+hospitalized = 776361
+
+# Additional data 
+recovered = 25500000
+vaccinated = 120000000
+testing_capacity = 90000000
+
+# Displaying the data 
+print(f"Date and Time: {date_time_obj}")
+print(f"Positive Cases: {positive_cases}")
+print(f"Negative Tests: {negative_tests}")
+print(f"Deaths: {deaths}")
+print(f"Hospitalized: {hospitalized}")
+print(f"Recovered: {recovered}")
+print(f"Vaccinated: {vaccinated}")
+print(f"Testing Capacity: {testing_capacity}") 
