@@ -1,5 +1,13 @@
 import datetime
 
+#!/bin/bash
+# This script downloads covid data and displays it
+
+POSITIVE=$(curl https://api.covidtracking.com/v1/us/current.json | jq '.[0].positive')
+TODAY=$(date)
+
+echo "On $TODAY, there were $POSITIVE positive COVID cases"
+
 # Data for Sat Aug 28 14:23:53 EDT 2021
 date_time_str = 'Sat Aug 28 14:23:53 2021'
 date_time_obj = datetime.datetime.strptime(date_time_str, '%a %b %d %H:%M:%S %Y')
@@ -14,7 +22,7 @@ recovered = 25500000
 vaccinated = 120000000
 testing_capacity = 90000000
 
-# Displaying the data 
+# Displays the data 
 print(f"Date and Time: {date_time_obj}")
 print(f"Positive Cases: {positive_cases}")
 print(f"Negative Tests: {negative_tests}")
