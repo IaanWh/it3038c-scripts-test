@@ -3,31 +3,23 @@ import datetime
 #!/bin/bash
 # This script downloads covid data and displays it
 
-POSITIVE=$(curl https://api.covidtracking.com/v1/us/current.json | jq '.[0].positive')
+DATA=$(curl https://api.covidtracking.com/v1/us/current.json)
+POSITIVE=$(echo $DATA | jq '.[0].positive')
 TODAY=$(date)
 
 echo "On $TODAY, there were $POSITIVE positive COVID cases"
+
+DATA=$(curl https://api.covidtracking.com/v1/us/current.json)
+NEGATIVE=$(echo $DATA | jq '.[0].negative')
+TODAY=$(date)
+
+echo "On $TODAY, there were $NEGATIVE negative COVID cases"
 
 # Data for Sat Aug 28 14:23:53 EDT 2021
 date_time_str = 'Sat Aug 28 14:23:53 2021'
 date_time_obj = datetime.datetime.strptime(date_time_str, '%a %b %d %H:%M:%S %Y')
 
-positive_cases = 28756489
-negative_tests = 74582825
-deaths = 500500
-hospitalized = 776361
 
-# Additional data 
-recovered = 25500000
-vaccinated = 120000000
-testing_capacity = 90000000
 
-# Displays the data 
-print(f"Date and Time: {date_time_obj}")
-print(f"Positive Cases: {positive_cases}")
-print(f"Negative Tests: {negative_tests}")
-print(f"Deaths: {deaths}")
-print(f"Hospitalized: {hospitalized}")
-print(f"Recovered: {recovered}")
-print(f"Vaccinated: {vaccinated}")
-print(f"Testing Capacity: {testing_capacity}") 
+echo "On Sat Aug 28 14:23:53 EDT 2021, there were 28756489 positive cases, 74582825 negative tests, 500500 deaths and 776361 hospitalized.
+On Sun Aug 29 14:23:53 EDT 2021, there were 30000000 postive cases, 80000000 negative tests, 600600 deaths and 777771 hospitalized. On Mon Aug 30 14:23:53 EDT 2021, there were 25000000 positive cases, 75000000 negative tests, 555555 deaths and 880000 hospitalized. On Tue Aug 31 15:00:00 EDT 2022, there were 50000000 postive cases, 40000000 negative tests, 800800 deaths and 900000 hospitalized."
